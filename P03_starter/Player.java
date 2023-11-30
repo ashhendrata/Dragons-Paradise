@@ -28,6 +28,13 @@ public class Player extends Entity {
         this.hp = STARTING_HP;
         this.movementSpeed = DEFAULT_MOVEMENT_SPEED;
     }
+
+    public Player(int x, int y, String img_file, int hp, int width, int height, int movement_speed){
+        super(x, y, width, height, img_file);  
+        this.hp = hp;
+        this.movementSpeed = movement_speed;
+    }
+
     
     
     //Retrieve and set the Player's current movement speed 
@@ -58,7 +65,8 @@ public class Player extends Entity {
     public boolean modifyHP(int delta){
         this.hp += delta;
         return (this.hp > 0);
-    }    
+    }
+
     
     
     

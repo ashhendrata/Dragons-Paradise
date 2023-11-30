@@ -18,6 +18,10 @@ public class Avoid extends Entity implements Collectable, Scrollable {
         super(x, y, AVOID_WIDTH, AVOID_HEIGHT, AVOID_IMAGE_FILE);  
     }
 
+    public Avoid(int x, int y, String img_file, int width, int height){
+        super(x, y, width, height, img_file);  
+    }
+
 
     public int getScrollSpeed(){
         return AVOID_SCROLL_SPEED;

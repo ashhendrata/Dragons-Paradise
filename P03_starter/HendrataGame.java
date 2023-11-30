@@ -7,8 +7,8 @@ import java.util.List;
 public class HendrataGame extends ScrollingGame {
 
     // Starting Player coordinates
-    protected static final int STARTING_PLAYER_X = 100;
-    protected static final int STARTING_PLAYER_Y = 90;
+    protected static final int STARTING_PLAYER_X = 200;
+    protected static final int STARTING_PLAYER_Y = 100;
 
     // Score needed to win the game
     protected static final int SCORE_TO_WIN = 300;
@@ -28,9 +28,11 @@ public class HendrataGame extends ScrollingGame {
     // ie: once every how many ticks does the game attempt to spawn new Entities
     protected static final int SPAWN_INTERVAL = 60;
 
+
+
     // Constructor using default dimensions
     public HendrataGame() {
-        super();
+        this(1000, 600);
     }
 
     // Constructor with specified dimensions
@@ -40,10 +42,9 @@ public class HendrataGame extends ScrollingGame {
 
     // Performs all of the initialization operations that need to be done before the
     // game starts
-    @Override
     protected void pregame() {
         this.setBackgroundImage("assets/clouds.gif");
-        player = new ed_player(STARTING_PLAYER_X, STARTING_PLAYER_Y); // Use ed_player instead of Player
+        player = new DragonPlayer(STARTING_PLAYER_X, STARTING_PLAYER_Y); // Use ed_player instead of Player
         displayList.add(player);
         score = 0;
         setSplashImage(INTRO_SPLASH_FILE);
@@ -54,6 +55,8 @@ public class HendrataGame extends ScrollingGame {
     @Override
     protected void updateGame() {
         super.updateGame(); // Call the updateGame method of the superclass
+        setTitleText("Lives Left: " + player.getHP() + ", Food Eaten: " + score);   
+
     
         // Iterate through the display list to check for collisions
         for (int i = 0; i < displayList.size(); i++) {
@@ -96,25 +99,21 @@ public class HendrataGame extends ScrollingGame {
         protected void spawnEntities(){
             int randomY = rand.nextInt(getWindowHeight() - Avoid.AVOID_HEIGHT);
             if (rand.nextInt(100) < 10) {
-                HeliumTank tank = new HeliumTank(getWindowWidth(), randomY);
-                if (isNotCollidingRightNow(tank))
-                    displayList.add(tank);
-            } else if (rand.nextInt(100) < 35) {
-                NeonDragon neondragon = new NeonDragon(getWindowWidth(), randomY);
-                if (isNotCollidingRightNow(neondragon))
-                    displayList.add(neondragon);
+                GoldCloud goldcloud = new GoldCloud(getWindowWidth(), randomY);
+                if (isNotCollidingRightNow(goldcloud))
+                    displayList.add(goldcloud);
             } else if (rand.nextInt(100) < 37) { // Increase the probability of LongDragon spawn
-                    LongDragon longdragon = new LongDragon(-LongDragon.LONG_DRAGON_WIDTH, randomY);
+                    LongDragon longdragon = new LongDragon(-LongDragon.LONG_DRAGON_WIDTH, randomY, LongDragon.LONG_DRAGON_IMAGE_FILE);
                     if (isNotCollidingRightNow(longdragon))
                         displayList.add(longdragon);
             } else if (rand.nextInt(100) < 40){
-                    OrangeDragon orangedragon = new OrangeDragon(getWindowWidth(), randomY);
-                    if (isNotCollidingRightNow(orangedragon))
-                        displayList.add(orangedragon);
+                    LongDragon leftlongdragon = new LongDragon(getWindowWidth(), randomY, LongDragon.LONG_LEFT_DRAGON_IMAGE_FILE);
+                    if (isNotCollidingRightNow(leftlongdragon))
+                        displayList.add(leftlongdragon);
             } else {
-                Hamster hamster = new Hamster(getWindowWidth(), randomY);
-                if (isNotCollidingRightNow(hamster))
-                    displayList.add(hamster);
+                Pig pig = new Pig(getWindowWidth(), randomY);
+                if (isNotCollidingRightNow(pig))
+                    displayList.add(pig);
             }
         }
 
@@ -162,10 +161,15 @@ public class HendrataGame extends ScrollingGame {
     @Override
     protected void reactToKey(int key) {
         super.reactToKey(key); // Call the reactToKey method of the superclass
-        // Additional key reactions specific to HendrataGame if needed
+        
+        if (key == RIGHT_KEY && ((DragonPlayer) player).getDragonOrientation().equals("LEFT")){
+            ((DragonPlayer) player).setRightFacingDragon();
+        }
+        if (key == LEFT_KEY && ((DragonPlayer) player).getDragonOrientation().equals("RIGHT")){
+            ((DragonPlayer) player).setLeftFacingDragon();
+        }
     }
 
 
 
-    // Additional methods specific to HendrataGame if needed
 }

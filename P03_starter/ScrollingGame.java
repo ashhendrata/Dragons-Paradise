@@ -79,7 +79,7 @@ public class ScrollingGame extends GameEngine {
             Entity currentEntity = displayList.get(i);
             if (!(currentEntity instanceof Player)){
                 handlePlayerCollision((Collectable)currentEntity);
-                  
+                gcOutOfWindowEntities();
             } 
         }
         determineIfGameIsOver();
@@ -120,23 +120,17 @@ public class ScrollingGame extends GameEngine {
     }
     //Called whenever it has been determined that the Player collided with a collectable
     protected void handlePlayerCollision(Collectable collidedWith) {
-        Entity entity = (Entity) collidedWith; 
-        if (player.isCollidingWith(entity)) {
-            if (entity instanceof SpecialGet) {
-                int points = ((SpecialGet) entity).getPoints();
-                score += points;
-                player.modifyHP(((SpecialGet) entity).increaseHP()); 
-            } else if (entity instanceof Get) {
-                int points = ((Get) entity).getPoints();
-                score += points;
-            } else if (entity instanceof Avoid) {
-                player.modifyHP(((Avoid) entity).getDamage()); //descreases hp
-            }
-            
-            displayList.remove(entity); // Removes entity from the displayList when collision w player occurs
+        if (player.isCollidingWith((Entity) collidedWith)) {
+            int points = collidedWith.getPoints();
+            score += points;
     
+            int damage = collidedWith.getDamage();
+            player.modifyHP(damage);
+    
+            displayList.remove((Entity) collidedWith); // Removes entity from the displayList when collision with player occurs
         }
     }
+    
 
     
     
@@ -151,15 +145,17 @@ public class ScrollingGame extends GameEngine {
         if (rand.nextInt(100) < 10) { 
             SpecialGet specialGet = new SpecialGet(getWindowWidth(), randomY);
             displayList.add(specialGet);
-        } else if (rand.nextInt(100) < 60) { 
+        }
+        else if (rand.nextInt(100) < 60) { 
             Avoid avoid = new Avoid(getWindowWidth(), randomY);
             displayList.add(avoid);
-        } else {
+        } 
+        else if (rand.nextInt(100) < 50) {
             Get get = new Get(getWindowWidth(), randomY);
             displayList.add(get);
         }
             
-    }
+    } 
     
     
     //Called once the game is over, performs any end-of-game operations
@@ -189,21 +185,34 @@ public class ScrollingGame extends GameEngine {
     
     //Reacts to a single key press on the keyboard
     protected void reactToKey(int key){
-        if (key == UP_KEY && player.getY() > 0){
-            player.setY(player.getY()+(-1*player.getMovementSpeed()));
-        }
-        if(key == DOWN_KEY && player.getY() < (getWindowHeight() - Player.PLAYER_HEIGHT)){
-            player.setY(player.getY()+(player.getMovementSpeed()));
-        }
-        if(key == RIGHT_KEY && player.getX() < getWindowWidth() - Player.PLAYER_WIDTH){
-            player.setX(player.getX()+(player.getMovementSpeed()));
-        }
-        if(key == LEFT_KEY && player.getX() > 0){
-            player.setX(player.getX()+(-1*player.getMovementSpeed()));
+        if (!isPaused){
+            if (key == UP_KEY && player.getY() - player.getMovementSpeed() > 0){
+                player.setY(player.getY()+(-1*player.getMovementSpeed()));
+            }
+            if(key == DOWN_KEY && player.getY() < (getWindowHeight() - Player.PLAYER_HEIGHT)){
+                player.setY(player.getY()+(player.getMovementSpeed()));
+            }
+            if(key == RIGHT_KEY && player.getX() < getWindowWidth() - Player.PLAYER_WIDTH){
+                player.setX(player.getX()+(player.getMovementSpeed()));
+            }
+            if(key == LEFT_KEY && player.getX() > 0){
+                player.setX(player.getX()+(-1*player.getMovementSpeed()));
+            }
+            if (key == SPEED_UP_KEY){
+                if (getGameSpeed() < MAX_GAME_SPEED){
+                    setGameSpeed(getGameSpeed() + SPEED_CHANGE);
+                }
+            }
+            if (key == SPEED_DOWN_KEY){
+                if (getGameSpeed() > SPEED_CHANGE){
+                    setGameSpeed(getGameSpeed() - SPEED_CHANGE);
+                }
+            }
         }
         if (key == KEY_PAUSE_GAME){ 
-            isPaused = !isPaused;
+                isPaused = !isPaused;
         }
+        
         
         setDebugText("Key Pressed!: " + KeyEvent.getKeyText(key) + ",  DisplayList size: " + displayList.size());
         

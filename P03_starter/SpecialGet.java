@@ -11,15 +11,16 @@ public class SpecialGet extends Get{
     }
     
     public SpecialGet(int x, int y){
-        super(x, y, SPECIAL_GET_IMAGE_FILE);  
+        super(x, y, GET_WIDTH, GET_HEIGHT, SPECIAL_GET_IMAGE_FILE);  
     }
-    
-    public SpecialGet(int x, int y, String imageFile){
-        super(x, y, imageFile);  
+
+    public SpecialGet(int x, int y, int width, int height, String imageFileName){
+        super(x, y, width, height, imageFileName);
     }
+
     
     
-    public int increaseHP(){
+    public int getDamage(){
         return 1;
     }
     

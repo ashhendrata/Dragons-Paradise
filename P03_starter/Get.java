@@ -21,8 +21,8 @@ public class Get extends Entity implements Collectable, Scrollable {
         super(x, y, GET_WIDTH, GET_HEIGHT, GET_IMAGE_FILE);  
     }
     
-    public Get(int x, int y, String imageFileName){
-        super(x, y, GET_WIDTH, GET_HEIGHT, imageFileName);
+    public Get(int x, int y, int width, int height, String imageFileName){
+        super(x, y, width, height, imageFileName);
     }
     
     public int getScrollSpeed(){
