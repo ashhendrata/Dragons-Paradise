@@ -92,6 +92,45 @@ public class HendrataGame extends ScrollingGame {
             }
         }
     }
+
+    protected void UpdateGame() {
+        super.updateGame(); //deals with player collisions
+        setTitleText("Lives Left: " + player.getHP() + ", Food Eaten: " + score);  
+
+        //collisions between dragons and between dragons and pigs
+        for (int i = 0; i < displayList.size(); i++){
+            Entity currEntity = displayList.get(i);
+            if (currEntity instanceof LongDragon){
+                currEntity.handleDragonToDragonCollisions(currEntity, );
+            }
+
+        }
+
+    }
+
+    public void handleDragonToDragonCollisions(Collectable dragon, Collectable currentEntity) {
+        // Assuming currentEntity is another Collectable representing the other dragon
+        if (((Entity) dragon).isCollidingWith((Entity) currentEntity)){
+            displayList.remove(currentEntity);
+            displayList.remove(dragon);
+            BloodSplat bloodSplat = new BloodSplat(((Entity)currentEntity).getX(), ((Entity) currentEntity).getY());
+            displayList.add(bloodSplat);
+        }
+    }
+
+    public void handleDragonToDragonCollisions(Collectable dragon) {
+        for (int i = 0; i < displayList.size(); i++){
+            Entity currEntity = displayList.get(i);
+            if (currEntity instanceof LongDragon){
+                currEntity.handleDragonToDragonCollisions(currEntity, );
+            }
+
+        }
+    }
+    
+
+
+
     
     
     
@@ -116,6 +155,8 @@ public class HendrataGame extends ScrollingGame {
                     displayList.add(pig);
             }
         }
+
+
 
         public boolean isNotCollidingRightNow(Entity oneEntity){
             for (int i = 0; i < displayList.size(); i++) {

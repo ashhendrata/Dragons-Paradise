@@ -1,20 +1,19 @@
-public class BloodSplat extends Entity implements Collectable {
+public class Yum extends Entity {
         //Location of image file to be drawn for an Avoid
-        public static final String BLOOD_IMAGE_FILE = "assets/bloodsplat.gif";
+        public static final String YUM_IMAGE_FILE = "assets/yum.gif";
         //Dimensions of the Avoid    
-        public static final int BLOOD_WIDTH = 75;
-        public static final int BLOOD_HEIGHT = 75;
+        public static final int YUM_WIDTH = 50;
+        public static final int YUM_HEIGHT = 50;
         //Speed that the avoid moves each time the game scrolls
         private int visibilityDuration; 
         
-        public BloodSplat(){
-            this(0, 0);   
-            this.visibilityDuration = 120;     
+        public Yum(){
+            this(0, 0);       
         }
         
-        public BloodSplat(int x, int y){
-            super(x, y, BLOOD_WIDTH, BLOOD_HEIGHT, BLOOD_IMAGE_FILE);  
-            this.visibilityDuration = 120;
+        public Yum(int x, int y){
+            super(x, y, YUM_WIDTH, YUM_HEIGHT, YUM_IMAGE_FILE);  
+            this.visibilityDuration = 100;
         }
 
         public int getVisibilityDuration(){
@@ -42,10 +41,10 @@ public class BloodSplat extends Entity implements Collectable {
        public int getDamage(){
         return 0;
        }
-
+ 
        public boolean isCollidingWith(Entity other){
         return false; // does not matter if it collides with other entities as this is just a visual effect
     }
- 
         
+
 }

@@ -5,14 +5,19 @@ public class DragonPlayer extends Player {
 // Location of the image file to be drawn for a Player
     public static final String LEFT_DRAGON_IMAGE_FILE = "assets/OrangeDragon.gif";
     public static final String RIGHT_DRAGON_IMAGE_FILE = "assets/RightFacingDragon.gif";
+    
+    public static final String RIGHT_RAINBOW_DRAGON_IMAGE_FILE = "assets/RainbowRightFacingDragon.gif";
+    public static final String LEFT_RAINBOW_DRAGON_IMAGE_FILE = "assets/RainbowLeftFacingDragon.gif";
 
     // Dimensions of the Player
-    public static final int PLAYER_WIDTH = 130;
-    public static final int PLAYER_HEIGHT = 120;
+    public static final int PLAYER_WIDTH = 120;
+    public static final int PLAYER_HEIGHT = 100;
     // Default speed that the Player moves (in pixels) each time the user moves it
     public static final int DEFAULT_MOVEMENT_SPEED = 7;
     // Starting hit points
     public static final int STARTING_HP = 3;
+
+    private int rainbowtime;
 
     public DragonPlayer() {
         this(0, 0);
@@ -20,6 +25,7 @@ public class DragonPlayer extends Player {
 
     public DragonPlayer(int x, int y) {
         super(x, y, LEFT_DRAGON_IMAGE_FILE, STARTING_HP, PLAYER_WIDTH, PLAYER_HEIGHT, DEFAULT_MOVEMENT_SPEED);
+        this.rainbowtime = 0;
     }
 
     public void setRightFacingDragon(){
@@ -40,4 +46,15 @@ public class DragonPlayer extends Player {
         throw new IllegalStateException("Unexpected dragon orientation: " + getImageName());
 
     }
+
+
+    public int getRainbowTime(){
+        return this.rainbowtime;
+    }
+    
+    public void setRainbowTime(int newDuration){
+        this.rainbowtime = newDuration;
+    }
+
+
 }
