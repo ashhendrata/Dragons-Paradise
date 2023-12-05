@@ -1,19 +1,19 @@
-public class Yum extends Entity implements Collectable{
+public class Ouch extends Entity implements Collectable{
         //Location of image file to be drawn for an Avoid
-        public static final String YUM_IMAGE_FILE = "assets/yum.gif";
+        public static final String OUCH_IMAGE_FILE = "assets/ouch.png";
         //Dimensions of the Avoid    
-        public static final int YUM_WIDTH = 50;
-        public static final int YUM_HEIGHT = 50;
+        public static final int OUCH_WIDTH = 50;
+        public static final int OUCH_HEIGHT = 50;
         //Speed that the avoid moves each time the game scrolls
         private int visibilityDuration; 
         
-        public Yum(){
+        public Ouch(){
             this(0, 0);       
         }
         
-        public Yum(int x, int y){
-            super(x, y, YUM_WIDTH, YUM_HEIGHT, YUM_IMAGE_FILE);  
-            this.visibilityDuration = 50;
+        public Ouch(int x, int y){
+            super(x, y, OUCH_WIDTH, OUCH_HEIGHT, OUCH_IMAGE_FILE);  
+            this.visibilityDuration = 30;
         }
 
         public int getVisibilityDuration(){

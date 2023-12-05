@@ -15,9 +15,10 @@ public class DragonPlayer extends Player {
     // Default speed that the Player moves (in pixels) each time the user moves it
     public static final int DEFAULT_MOVEMENT_SPEED = 7;
     // Starting hit points
-    public static final int STARTING_HP = 3;
+    public static final int STARTING_HP = 5;
 
     private int rainbowtime;
+    private boolean rainbowState;
 
     public DragonPlayer() {
         this(0, 0);
@@ -26,25 +27,39 @@ public class DragonPlayer extends Player {
     public DragonPlayer(int x, int y) {
         super(x, y, LEFT_DRAGON_IMAGE_FILE, STARTING_HP, PLAYER_WIDTH, PLAYER_HEIGHT, DEFAULT_MOVEMENT_SPEED);
         this.rainbowtime = 0;
+        this.rainbowState = false;
+
     }
 
     public void setRightFacingDragon(){
-        setImageName(RIGHT_DRAGON_IMAGE_FILE);
+        if (!this.rainbowState){
+            setImageName(RIGHT_DRAGON_IMAGE_FILE);
+        } else {
+            setImageName(RIGHT_RAINBOW_DRAGON_IMAGE_FILE);
+        }
+        
     }
 
     public void setLeftFacingDragon(){
-        setImageName(LEFT_DRAGON_IMAGE_FILE);
-    }
+        if (!this.rainbowState){
+            setImageName(LEFT_DRAGON_IMAGE_FILE);
+        } else {
+            setImageName(LEFT_RAINBOW_DRAGON_IMAGE_FILE);
+        }    }
 
     public String getDragonOrientation(){
-        if (getImageName().equals(RIGHT_DRAGON_IMAGE_FILE)){
+        if (getImageName().equals(RIGHT_DRAGON_IMAGE_FILE) || getImageName().equals(RIGHT_RAINBOW_DRAGON_IMAGE_FILE)){
             return "RIGHT";
         } 
-        if (getImageName().equals(LEFT_DRAGON_IMAGE_FILE)){
+        if (getImageName().equals(LEFT_DRAGON_IMAGE_FILE) || getImageName().equals(LEFT_RAINBOW_DRAGON_IMAGE_FILE)){
             return "LEFT";
         } 
         throw new IllegalStateException("Unexpected dragon orientation: " + getImageName());
 
+    }
+
+    public void setRainbowState(boolean bool){
+        rainbowState = bool;
     }
 
 
