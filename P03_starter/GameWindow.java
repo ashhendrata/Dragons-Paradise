@@ -13,16 +13,6 @@ import java.net.URL;
 //Which ultimately are retrieved and reacted to by Abstract/Basic/CreativeGame classes
 
 
-//************************************************************************************
-//*                                                                                  *
-//*                                                                                  *
-//*                    YOU ARE NOT ALLOWED TO MODIFY THIS CLASS                      *
-//*           YOU ALSO DON'T NEED TO READ/TRACE/CALL ANY METHODS IN HERE             *
-//*         (But feel free to take a look if you're feeling extra curious!)          *
-//*                                                                                  *
-//*                                                                                  *
-//************************************************************************************
-
 public class GameWindow extends JComponent implements KeyListener, MouseListener{
     
     
