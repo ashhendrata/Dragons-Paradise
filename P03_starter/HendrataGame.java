@@ -21,6 +21,7 @@ public class HendrataGame extends ScrollingGame {
     protected static final int SPEED_CHANGE = 20;
 
     protected static final String INTRO_SPLASH_FILE = "assets/DragonsParadise.png";
+    protected static final String BACKGROUND_IMAGE = "assets/clouds.gif";
     // Key pressed to advance past the splash screen
     public static final int ADVANCE_SPLASH_KEY = KeyEvent.VK_ENTER;
 
@@ -45,7 +46,7 @@ public class HendrataGame extends ScrollingGame {
     // Performs all of the initialization operations that need to be done before the
     // game starts
     protected void pregame() {
-        this.setBackgroundImage("assets/clouds.gif");
+        this.setBackgroundImage(BACKGROUND_IMAGE);
         player = new DragonPlayer(STARTING_PLAYER_X, STARTING_PLAYER_Y); 
         displayList.add(player);
         score = 0;
@@ -54,34 +55,21 @@ public class HendrataGame extends ScrollingGame {
 
     // Called on each game tick
     protected void updateGame() {
-        //scroll all scrollable Entities on the game board
-        scrollEntities();  
-        //Spawn new entities only at a certain interval
-        if (super.getTicksElapsed() % SPAWN_INTERVAL == 0){            
-            spawnEntities();
-        }
-        for (int i = 0; i < displayList.size(); i++){ //iterates through displaylist to check if collisions have happened
-            Entity currentEntity = displayList.get(i);
-            if (!(currentEntity instanceof Player)){
-                handlePlayerCollision((Collectable)currentEntity);
-                gcOutOfWindowEntities();
-            } 
-        }
-        determineIfGameIsOver();
+        super.updateGame();
         if (((DragonPlayer) player).getRainbowTime() > 0){
             setTitleText("Lives Left: " + player.getHP() + "        Energy Level: " + score + "        INVINCIBILITY MODE: ON");  
         } else {
             setTitleText("Lives Left: " + player.getHP() + "        Energy Level: " + score + "        INVINCIBILITY MODE: OFF");  
         }
 
-        //collisions between dragons and between dragons and pigs
+        //collisions
         handleDragonToDragonCollisions();
         handleDragonToPigCollisions();
         handleLongDragonToGoldCloudCollisions();
         handlePigToGoldCloudCollisions();
         handleOuchVisibility();
 
-        ((DragonPlayer) player).setRainbowTime(((DragonPlayer) player).getRainbowTime()-1);
+        ((DragonPlayer) player).setRainbowTime(((DragonPlayer) player).getRainbowTime()-1); //tracks rainbow time
         if (((DragonPlayer) player).getRainbowTime() <= 0){
             ((DragonPlayer) player).setRainbowState(false);
         }
@@ -89,7 +77,7 @@ public class HendrataGame extends ScrollingGame {
     }
 
 
-    public void handleOuchVisibility(){
+    public void handleOuchVisibility(){ //when player hits enemy dragon
         for (int i = 0; i < displayList.size(); i++) {
             Entity currEntity = displayList.get(i);
             if (currEntity instanceof Ouch){
@@ -118,7 +106,7 @@ public class HendrataGame extends ScrollingGame {
             }
   
             if (collidedWith instanceof GoldCloud){
-                ((DragonPlayer) player).setRainbowState(true);
+                ((DragonPlayer) player).setRainbowState(true); //dragon has invincibility for 250 units of time
                 ((DragonPlayer) player).setRainbowTime(250);
             }
 
@@ -134,15 +122,13 @@ public class HendrataGame extends ScrollingGame {
     
 
     public void handleDragonToDragonCollisions() {
-        // Assuming currentEntity is another Collectable representing the other dragon
         for (int i = 0; i < displayList.size(); i++) {
             Entity currEntity = displayList.get(i);
             if (currEntity instanceof LongDragon){
                 for (int j = 0; j < displayList.size(); j++){
                     Entity othEntity = displayList.get(j);
                     if ((othEntity instanceof LongDragon) && (i != j)){
-                        if (currEntity.isCollidingWith(othEntity)) {
-                                // Collision occurred, remove both entities from the display list
+                        if (currEntity.isCollidingWith(othEntity)) { //both removed
                                 displayList.remove(currEntity);
                                 displayList.remove(othEntity);
                                 BloodSplat bloodSplat = new BloodSplat(currEntity.getX(), currEntity.getY());
@@ -169,8 +155,7 @@ public class HendrataGame extends ScrollingGame {
                     Entity othEntity = displayList.get(j);
                     if ((othEntity instanceof Pig)){
                         if (currEntity.isCollidingWith(othEntity)) {
-                            // Collision occurred, only remove pig
-                            displayList.remove(othEntity);
+                            displayList.remove(othEntity); // Collision occurred, only remove pig
                             Yum yum = new Yum(othEntity.getX(), othEntity.getY());
                             displayList.add(yum);
                         }
@@ -195,8 +180,7 @@ public class HendrataGame extends ScrollingGame {
                     Entity othEntity = displayList.get(j);
                     if ((othEntity instanceof GoldCloud)){
                         if (currEntity.isCollidingWith(othEntity)) {
-                            // Collision occurred, only remove gold cloud
-                            displayList.remove(othEntity);
+                            displayList.remove(othEntity); // Collision occurred, only remove gold cloud
                         }
                     }
                 }
@@ -212,8 +196,7 @@ public class HendrataGame extends ScrollingGame {
                     Entity othEntity = displayList.get(j);
                     if ((othEntity instanceof GoldCloud)){
                         if (currEntity.isCollidingWith(othEntity)) {
-                            // Collision occurred, only remove gold cloud
-                            displayList.remove(othEntity);
+                            displayList.remove(othEntity); // Collision occurred, only remove gold cloud
                         }
                     }
                 }
@@ -234,11 +217,11 @@ public class HendrataGame extends ScrollingGame {
                 GoldCloud goldcloud = new GoldCloud(getWindowWidth(), randomY);
                 if (isNotCollidingRightNow(goldcloud))
                     displayList.add(goldcloud);
-            } else if (rand.nextInt(100) < 34) { // Increase the probability of LongDragon spawn
+            } else if (rand.nextInt(100) < 34) { //dragon from left side
                     LongDragon longdragon = new LongDragon(-LongDragon.LONG_DRAGON_WIDTH, randomY, LongDragon.LONG_DRAGON_IMAGE_FILE);
                     if (isNotCollidingRightNow(longdragon))
                         displayList.add(longdragon);
-            } else if (rand.nextInt(100) < 40){
+            } else if (rand.nextInt(100) < 40){ //dragon from right side
                     LongDragon leftlongdragon = new LongDragon(getWindowWidth(), randomY, LongDragon.LONG_LEFT_DRAGON_IMAGE_FILE);
                     if (isNotCollidingRightNow(leftlongdragon))
                         displayList.add(leftlongdragon);
@@ -276,8 +259,7 @@ public class HendrataGame extends ScrollingGame {
             return true;
         }
         
-    // Called once the game is over, performs any end-of-game operations
-    @Override
+
     protected void postgame() {
         if (player.getHP() <= 0){
             setTitleText("GAME OVER! YOU LOST!");
@@ -291,14 +273,11 @@ public class HendrataGame extends ScrollingGame {
 
     // Determines if the game is over or not
     // Game can be over due to either a win or lose state
-    @Override
     protected boolean determineIfGameIsOver() {
-        return super.determineIfGameIsOver(); // Call the determineIfGameIsOver method of the superclass
-        // Additional conditions specific to HendrataGame if needed
+        return super.determineIfGameIsOver(); 
     }
 
     // Reacts to a single key press on the keyboard
-    @Override
     protected void reactToKey(int key) {
         if (!isPaused){
             if (key == UP_KEY && player.getY() - player.getMovementSpeed() > 0){
@@ -331,17 +310,15 @@ public class HendrataGame extends ScrollingGame {
         
         setDebugText("Key Pressed!: " + KeyEvent.getKeyText(key) + ",  DisplayList size: " + displayList.size());
         
-        //if a splash screen is active, only react to the "advance splash" key... nothing else!
         if (getSplashImage() != null) {
             if (key == ADVANCE_SPLASH_KEY && ENTER_COUNT < MAX_ENTER_COUNT) {
                 switch (ENTER_COUNT) {
                     case 0:
-                        super.setSplashImage("assets/Legend.gif");
+                        super.setSplashImage("assets/Legend.gif"); //2nd splash screen
                         break;
                     case 1:
                         super.setSplashImage(null);
                         break;
-                    // Add more cases if needed
                 }
                 ENTER_COUNT++;
             }
@@ -349,6 +326,7 @@ public class HendrataGame extends ScrollingGame {
             return;
         }
 
+        //these ensures the right image is being displayed
         if (key == RIGHT_KEY && ((DragonPlayer) player).getDragonOrientation().equals("LEFT")){
             ((DragonPlayer) player).setRightFacingDragon();
         }
