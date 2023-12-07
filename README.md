@@ -22,7 +22,6 @@ Game mechanics:
 
 
 
-<br />
 Credits:
 - Starting splash image: background from canva; dragons from canva; font from flamingtext
 - Icons: 
