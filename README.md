@@ -1,4 +1,6 @@
-## The name of my game is "Dragon's Paradise". While your dragon will have an abundance of food here, other dragons will also be competing with you in the skies. And they're going to do what it takes so beware!
+## Dragon's Paradise
+
+**The name of my game is "Dragon's Paradise". While your dragon will have an abundance of food here, other dragons will also be competing with you in the skies. And they're going to do what it takes so beware!**
 
 Game mechanics:
 - the speed of the game can be controlled using + and - buttons
@@ -9,9 +11,11 @@ Game mechanics:
 - Remember that your enemy dragons can eat them too!
 - Most excitingly, when you fly into a gold cloud, you'll be invicible against the enemy and for a few seconds, your dragon's skin flashing rainbow for the time being
 
-How can you win? Get an energy level of 300!
 
-How can you lose? Lose all lives!
+**How can you win? Get an energy level of 300!**
+
+**How can you lose? Lose all lives!**
+
 
 Credits:
 - Starting splash image: background from canva; dragons from canva; font from flamingtext
@@ -21,3 +25,5 @@ Credits:
     - long dragon: https://giphy.com/stickers/CultureTrip-hong-kong-culturetrip-culture-trip-eKaOSjbqk8q8xbmLrT
     - cloud background: https://giphy.com/gifs/sky-clouds-virtuesinclair-4N1FZFE5AGO3qrUGkw
 - Ending splash images: Canva except dragon (https://twitter.com/cansonzard/status/1562238785969987586)
+
+**ENJOY!**
