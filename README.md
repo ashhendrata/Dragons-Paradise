@@ -1,6 +1,6 @@
 # 🐲 Dragon's Paradise 🐉
 
-*Award: Most Creative Theme*
+*Award: "Most Creative Theme"*
 
 **This is "Dragon's Paradise". While your dragon will have an abundance of food here, other dragons will also be competing with you in the skies. And they're going to do what it takes so beware!**
 
