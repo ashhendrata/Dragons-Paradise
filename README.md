@@ -2,7 +2,7 @@
 
 **The name of my game is "Dragon's Paradise". While your dragon will have an abundance of food here, other dragons will also be competing with you in the skies. And they're going to do what it takes so beware!**
 
-### Game Instructions:
+## Game Instructions:
 - 🔥 Use the ↑, ↓, →, and ← key to control your dragon
 - 🚀 To speed up or slow down the pace of the game, use the + and - keys
 - 🐷 Eat as many flying pigs as you can. They improve your energy level! But don't forget, the enemy wants to devour them too.
@@ -17,7 +17,7 @@
 - ⭐ Invincibility mode: Your dragon achieves pure power through invincibility. For a few seconds, no enemy can hurt you. In this mode, clear as many of the enemies off the sky. It's the perfect time for revenge.
 - ⭐️ Bloodbath: Watch your enemies battle one another. We know it always ends badly for all of them!
 
-
+&nbsp;
 
 <div align="center">
     <img width="300" alt="Screenshot 2023-12-07 at 1 59 05 AM" src="https://github.com/ashhendrata/Dragons-Paradise/assets/134671782/924f0cf7-dc08-44e5-b3f8-017608f364d5">
@@ -28,13 +28,13 @@
     <img width="300" src="https://github.com/ashhendrata/Dragons-Paradise/assets/134671782/9f104415-470a-41cf-97d5-f582755a99cf">
 </div>
 
-
+&nbsp;
 
 https://github.com/ashhendrata/Dragons-Paradise/assets/134671782/ffb8bc90-9ac4-4b15-aa72-007fb6e719e1
 
+&nbsp;
 
-
-Credits:
+## Credits:
 - Starting splash image: background from canva; dragons from canva; font from flamingtext
 - Icons: 
     - Flying pig from https://giphy.com/gifs/food-gif-artist-foodieg-4NetxFvQ2mq8Zy9VWn
