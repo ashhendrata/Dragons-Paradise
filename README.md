@@ -7,7 +7,7 @@
 ## Game Instructions:
 - 🔥 Use the ↑, ↓, →, and ← key to control your dragon
 - 🚀 To speed up or slow down the pace of the game, use the + and - keys
-- 🐷 Eat as many flying pigs as you can. They improve your energy level! But don't forget, the enemy wants to devour them too.
+- 🐷 Eat as many flying pigs as you can. They improve your energy level! But don't forget, the enemy wants to devour them too. Every time they do catch a pig, they'll rub it in your face with the YUM effects!
 - 🪦 Avoid the enemy dragons. Each collision with one of them means one life lost. Watch out for the OUCH visual effect!
 - 🌈 To become attain temporary invincibility, fly into a gold cloud. You will be invicible against the enemy temporarily and your dragon's scales will flash rainbows! 
 - 🩸When two enemy dragons collide with one another, a bloodbath will ensue, killing both of them off. Perhaps the enemy of your enemy is your friend?
@@ -17,6 +17,7 @@
 ## Fan Favorites:
 - ⭐ **Invincibility mode**: Your dragon achieves pure power through invincibility. For a few seconds, no enemy can hurt you. In this mode, clear as many of the enemies off the sky. It's the perfect time for revenge.
 - ⭐️ **Bloodbath**: Watch your enemies battle one another. We know it always ends badly for all of them!
+- ⭐️ **Competition**: Other dragons want the same food your dragon does! This means competition is high! Watch out for the YUM, OUCH, and bloodsplat effects!
 
 &nbsp;
 
