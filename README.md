@@ -1,4 +1,4 @@
-## 🐲 Dragon's Paradise 🐉
+# 🐲 Dragon's Paradise 🐉
 
 **The name of my game is "Dragon's Paradise". While your dragon will have an abundance of food here, other dragons will also be competing with you in the skies. And they're going to do what it takes so beware!**
 
