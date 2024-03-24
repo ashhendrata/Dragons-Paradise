@@ -18,6 +18,7 @@ Game mechanics:
 
 <div align="center">
     <img width="300" alt="Screenshot 2023-12-07 at 1 59 05 AM" src="https://github.com/ashhendrata/Dragons-Paradise/assets/134671782/924f0cf7-dc08-44e5-b3f8-017608f364d5">
+    ![Kapture 2024-03-23 at 21 04 22](https://github.com/ashhendrata/Dragons-Paradise/assets/134671782/09053c40-4caa-452f-9068-845b0f37bfa3)
     <img width="300" alt="Screenshot 2023-12-07 at 1 59 14 AM" src="https://github.com/ashhendrata/Dragons-Paradise/assets/134671782/53437f9a-dd95-4183-ad0f-95eea2f1e8a4">
     <img width="300" alt="Screenshot 2023-12-07 at 1 59 33 AM" src="https://github.com/ashhendrata/Dragons-Paradise/assets/134671782/96688630-daf0-4dbb-a3ca-840239b87347">
     <img width="300" alt="Screenshot 2024-03-23 at 8 57 26 PM" src="https://github.com/ashhendrata/Dragons-Paradise/assets/134671782/e430a996-4624-4ba9-a294-6a19d3ed3763">
