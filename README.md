@@ -14,12 +14,6 @@
 
 &nbsp;
 
-**How can you win? Get an energy level of 300!**
-
-**How can you lose? Lose all lives!**
-
-&nbsp;
-
 ## Fan Favorites:
 - ⭐ **Invincibility mode**: Your dragon achieves pure power through invincibility. For a few seconds, no enemy can hurt you. In this mode, clear as many of the enemies off the sky. It's the perfect time for revenge.
 - ⭐️ **Bloodbath**: Watch your enemies battle one another. We know it always ends badly for all of them!
@@ -34,6 +28,11 @@
     <img width="300" src= "https://github.com/ashhendrata/Dragons-Paradise/assets/134671782/d2b985bd-29aa-4958-a05b-b2e4cc1031e6">
     <img width="300" src="https://github.com/ashhendrata/Dragons-Paradise/assets/134671782/9f104415-470a-41cf-97d5-f582755a99cf">
 </div>
+
+&nbsp;
+
+### **How can you win? Get an energy level of 300!**
+### **How can you lose? Lose all lives!**
 
 &nbsp;
 
