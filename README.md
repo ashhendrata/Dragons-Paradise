@@ -37,6 +37,7 @@
 &nbsp;
 
 Sorry for the glitches! My laptop is unfortunately on the brink of death :(
+
 https://github.com/ashhendrata/Dragons-Paradise/assets/134671782/ffb8bc90-9ac4-4b15-aa72-007fb6e719e1
 
 &nbsp;
