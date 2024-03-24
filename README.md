@@ -14,7 +14,8 @@
 
 &nbsp;
 
-**How can you win? Get an energy level of 300!** &nbsp;
+**How can you win? Get an energy level of 300!**
+
 **How can you lose? Lose all lives!**
 
 &nbsp;
