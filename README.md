@@ -21,8 +21,8 @@
 &nbsp;
 
 ## Fan Favorites:
-- ⭐ Invincibility mode: Your dragon achieves pure power through invincibility. For a few seconds, no enemy can hurt you. In this mode, clear as many of the enemies off the sky. It's the perfect time for revenge.
-- ⭐️ Bloodbath: Watch your enemies battle one another. We know it always ends badly for all of them!
+- ⭐ **Invincibility mode**: Your dragon achieves pure power through invincibility. For a few seconds, no enemy can hurt you. In this mode, clear as many of the enemies off the sky. It's the perfect time for revenge.
+- ⭐️ **Bloodbath**: Watch your enemies battle one another. We know it always ends badly for all of them!
 
 &nbsp;
 
