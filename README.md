@@ -1,6 +1,8 @@
 # 🐲 Dragon's Paradise 🐉
 
-**The name of my game is "Dragon's Paradise". While your dragon will have an abundance of food here, other dragons will also be competing with you in the skies. And they're going to do what it takes so beware!**
+*Award: Most Creative Theme*
+
+**This is "Dragon's Paradise". While your dragon will have an abundance of food here, other dragons will also be competing with you in the skies. And they're going to do what it takes so beware!**
 
 ## Game Instructions:
 - 🔥 Use the ↑, ↓, →, and ← key to control your dragon
@@ -10,8 +12,12 @@
 - 🌈 To become attain temporary invincibility, fly into a gold cloud. You will be invicible against the enemy temporarily and your dragon's scales will flash rainbows! 
 - 🩸When two enemy dragons collide with one another, a bloodbath will ensue, killing both of them off. Perhaps the enemy of your enemy is your friend?
 
+&nbsp;
+
 **How can you win? Get an energy level of 300!**
 **How can you lose? Lose all lives!**
+
+&nbsp;
 
 ## Fan Favorites:
 - ⭐ Invincibility mode: Your dragon achieves pure power through invincibility. For a few seconds, no enemy can hurt you. In this mode, clear as many of the enemies off the sky. It's the perfect time for revenge.
